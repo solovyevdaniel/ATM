@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="username"> card number</label>
+    <input type="text" name="username" id="username">
+    <!--<label for="password"> pin</label>
+    <input type="password" name="password" id="password">-->
+    {% if login_error %}
+        <label>{{ login_error }}</label>
+    {% else %}
+        <label>{{ username1 }}</label>
+    {% endif %}
+    <input class="button" type="submit" value="Intro">
+</form>
+</body>
+</html>
