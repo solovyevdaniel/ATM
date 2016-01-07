@@ -5,10 +5,10 @@
     <title>ATM</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="" method="POST">
     {% csrf_token %}
-    <label for="username"> card number</label>
-    <input type="text" name="username" id="username">
+    <label for="card_number">Enter card number</label>
+    <input type="text" name="cardnumber" id="card_number">
     <!--<label for="password"> pin</label>
     <input type="password" name="password" id="password">-->
     {% if login_error %}
