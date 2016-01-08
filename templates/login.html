@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ATM</title>
+    <title>Auth</title>
 </head>
 <body>
-<form action="" method="get">
+<form action="" method="post">
     {% csrf_token %}
-    <label for="card_number">Enter card number</label>
-    <input type="text" name="cardnumber" id="card_number">
+    <label for="password"> Enter pin</label>
+    <input type="password" name="password" id="password">
     {% if login_error %}
         <label>{{ login_error }}</label>
     {% else %}
