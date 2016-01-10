@@ -1,17 +1,14 @@
-<<<<<<< HEAD
 from django.shortcuts import redirect, render
-=======
 from django.contrib import auth
 from django.template.context_processors import csrf
 from ATM.models import CustomUser
+
 
 def index(request):
     args = {}
     args.update(csrf(request))
     if request.POST:
-<<<<<<< HEAD
         card_number = request.POST['card_number']
-=======
         try:
             card = CustomUser.objects.get(username=card_number)
         except CustomUser.DoesNotExist:
@@ -19,7 +16,6 @@ def index(request):
             return render(request, 'main.html', args)
         else:
             if card.is_active:
-<<<<<<< HEAD
                 resp = redirect('auth/')
                 request.session.set_expiry(900)
                 request.session['card_number'] = card.username
@@ -28,7 +24,6 @@ def index(request):
             else:
                 args['card_number'] = card.username
                 return render(request, 'error.html', args)
-=======
     else:
         return render(request, 'main.html', args)
 
@@ -40,17 +35,14 @@ def login(request):
         resp = redirect('/')
         return resp
     if request.POST:
-<<<<<<< HEAD
         # username = request.COOKIES.get('card_number')
         username = request.session.get('card_number')
-=======
         password = request.POST.get('password', '')
         user = auth.authenticate(username=username, password=password)
         card = CustomUser.objects.get(username=request.session.get('card_number'))
         if user is not None:
             auth.login(request, user)
             args['username'] = username + 'logged in'
-<<<<<<< HEAD
             card.quantity_login = 0
             card.save()
             # del request.session['card_number']
@@ -68,6 +60,5 @@ def login(request):
                 del request.session['card_number']
                 args['card_number'] = card.username
                 return render(request, 'error.html', args)
-=======
     else:
         return render(request, 'login.html')
