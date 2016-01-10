@@ -1,3 +1,5 @@
 from django.contrib import admin
+from ATM.models import CustomUser, CustonAdmin
 
-# Register your models here.
+
+admin.site.register(CustomUser, CustonAdmin)

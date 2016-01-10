@@ -5,14 +5,14 @@
     <title>ATM</title>
 </head>
 <body>
-<form action="" method="get">
+<form action="" method="post">
     {% csrf_token %}
     <label for="card_number">Enter card number</label>
-    <input type="text" name="cardnumber" id="card_number">
+    <input type="text" name="card_number" id="card_number">
     {% if login_error %}
         <label>{{ login_error }}</label>
     {% else %}
-        <label>{{ username }}</label>
+        <label>{{ card_number }}</label>
     {% endif %}
     <input class="button" type="submit" value="Intro">
 </form>
